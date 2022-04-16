@@ -76,7 +76,7 @@ namespace NewsApi.Controllers
         {
             try
             {
-                int newsCount = contextNewsRepository.CountNews();
+                int newsCount =  contextNewsRepository.CountNews();
                 IEnumerable<NewsViewModel> models = await parseService.Parse(webSite);
                 if (models == null)
                 {
@@ -141,9 +141,7 @@ namespace NewsApi.Controllers
             {
                 logger.LogError("Произошла ошибка: " + ex.Message);
                 return StatusCode(500);
-            }
-            
-            
+            }                
         }
 
         /// <summary>

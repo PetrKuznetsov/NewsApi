@@ -63,6 +63,7 @@ namespace NewsApi.Services
                                                 CreatedAt = Convert.ToDateTime(dateCreated)
                                             };
                                             news.Add(model);
+                                            _logger.LogInformation($"Новость :{model.Title} успешно создана");
                                         }
                                     }
                                 }
