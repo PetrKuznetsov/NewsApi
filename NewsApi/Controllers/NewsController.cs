@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewsApi.DbContexts;
 using NewsApi.Interfaces;
@@ -12,6 +13,7 @@ namespace NewsApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+  
     public class NewsController : ControllerBase
     {
         private readonly IParseService parseService;
@@ -40,6 +42,7 @@ namespace NewsApi.Controllers
         /// Получить новости за временной промежуток 
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         [HttpPost()]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
@@ -121,6 +124,7 @@ namespace NewsApi.Controllers
         /// Получить топ 10 слов с новостей 
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         [HttpGet(), Route("topten")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
@@ -148,6 +152,7 @@ namespace NewsApi.Controllers
         /// Поиск новости по запросу
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         [HttpGet(), Route("search")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
