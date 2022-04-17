@@ -80,7 +80,7 @@ namespace NewsApi.Controllers
             try
             {
                 int newsCount =  contextNewsRepository.CountNews();
-                IEnumerable<NewsViewModel> models = await parseService.Parse(webSite);
+                IEnumerable<NewsViewModel> models = parseService.Parse(webSite);
                 if (models == null)
                 {
                     logger.LogWarning("Спарсить новости не получилось");

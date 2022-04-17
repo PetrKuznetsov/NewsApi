@@ -13,7 +13,7 @@ namespace NewsApi.Services
         {
             _logger = logger;
         }
-        public async Task<IEnumerable<NewsViewModel>> Parse(string url)
+        public IEnumerable<NewsViewModel> Parse(string url)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace NewsApi.Services
                         }
                         if (links != null && links.Count > 0)
                         {
-                            _logger.LogInformation($"Получли ссылки на новости в колличестве:{links.Count}");
+                            _logger.LogInformation($"Получили ссылки на новости в количестве :{links.Count}");
                             List<NewsViewModel> news = new List<NewsViewModel>();
                             foreach (var item in links)
                             {
@@ -79,7 +79,7 @@ namespace NewsApi.Services
             catch (Exception ex)
             {
                 _logger.LogError("Произошла ошибка" + ex);
-                throw;
+                return null;
             }
         }
     }

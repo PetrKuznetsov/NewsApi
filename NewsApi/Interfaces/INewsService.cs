@@ -18,7 +18,7 @@ namespace NewsApi.Interfaces
         /// <returns></returns>
         Task<IEnumerable<News>> SearchNewsByRequest(NewsRequest request);
         /// <summary>
-        /// Получить последнию новость
+        /// Получить последнюю новость
         /// </summary>
         /// <returns></returns>
         Task<News> GetLastNews();

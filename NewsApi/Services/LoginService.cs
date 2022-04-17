@@ -68,7 +68,7 @@ namespace NewsApi.Services
             catch (Exception ex)
             {
                 _logger.LogError("Произошла ошибка" + ex);
-                throw;
+                return null;
             }
             
         }

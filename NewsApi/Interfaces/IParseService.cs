@@ -9,6 +9,6 @@ namespace NewsApi.Interfaces
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        Task<IEnumerable<NewsViewModel>> Parse(string url);
+        IEnumerable<NewsViewModel> Parse(string url);
     }
 }
